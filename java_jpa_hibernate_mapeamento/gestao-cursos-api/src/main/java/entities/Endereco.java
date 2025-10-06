@@ -11,6 +11,7 @@ public class Endereco {
     private Long id;
 
     private String rua;
+    private String numero;
     private String cidade;
     private String cep;
 
@@ -20,19 +21,27 @@ public class Endereco {
 
     public Endereco() {}
 
-    public Endereco(String rua, String cidade, String cep) {
+    public Endereco(String rua, String numero, String cidade, String cep) {
         this.rua = rua;
+        this.numero = numero;
         this.cidade = cidade;
         this.cep = cep;
     }
 
     public Long getId() { return id; }
+
     public String getRua() { return rua; }
     public void setRua(String rua) { this.rua = rua; }
+
+    public String getNumero() { return numero; }
+    public void setNumero(String numero) { this.numero = numero; }
+
     public String getCidade() { return cidade; }
     public void setCidade(String cidade) { this.cidade = cidade; }
+
     public String getCep() { return cep; }
     public void setCep(String cep) { this.cep = cep; }
+
     public Aluno getAluno() { return aluno; }
     public void setAluno(Aluno aluno) { this.aluno = aluno; }
 }
