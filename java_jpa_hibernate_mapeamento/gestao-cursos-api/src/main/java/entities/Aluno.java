@@ -1,6 +1,7 @@
 package com.techcamps.gestao.cursos.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,8 @@ public class Aluno {
 
     private String nome;
 
+    private LocalDate nascimento; // novo campo
+
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Endereco> enderecos = new HashSet<>();
 
@@ -25,13 +28,18 @@ public class Aluno {
 
     public Aluno() {}
 
-    public Aluno(String nome) {
+    public Aluno(String nome, LocalDate nascimento) {
         this.nome = nome;
+        this.nascimento = nascimento;
     }
 
     public Long getId() { return id; }
+
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
+
+    public LocalDate getNascimento() { return nascimento; }
+    public void setNascimento(LocalDate nascimento) { this.nascimento = nascimento; }
 
     public Set<Endereco> getEnderecos() { return enderecos; }
     public void addEndereco(Endereco e) {
